@@ -1,0 +1,142 @@
+/* Header Container */
+.header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid #5e5b5b;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Logo */
+.logo h1 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logo span {
+  color: #4fc3f7; /* Accent color */
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #cccccc;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: #4fc3f7;
+}
+
+/* Optional underline on hover */
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #4fc3f7;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navList {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #0d0d0d;
+    display: none;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .navList.active {
+    display: flex;
+  }
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .menuToggle {
+    display: block;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+  }
+}
+
+/* By default, menu toggle hidden on desktop */
+.menuToggle {
+  display: none;
+}
+/* Menu Toggle Button (visible on mobile) */
+.menuToggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+    font-size: 1.8rem;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .navList {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #0d0d0d;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .navList.active {
+    display: flex;
+  }
+
+  .navLink {
+    padding: 0.5rem 0;
+  }
+}
+.noScroll {
+  overflow: hidden;
+  height: 100vh;
+}

@@ -27,19 +27,21 @@ export default function ContactUs() {
     };
     setLoading(true); // start loading
     try {
-      const response = await fetch("http://localhost:5000/contact", {
+      const api = import.meta.env.VITE_API_URL;
+
+      // Example:
+      const response = await fetch(`${api}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-
       const data = await response.json();
-      if (response.ok) { 
+      if (response.ok) {
         e.target.reset();
         setToast(true);
-        confetti();  
+        confetti();
         setTimeout(() => setToast(false), 3000);
       } else {
         alert("Failed to send message.");
@@ -48,57 +50,57 @@ export default function ContactUs() {
       console.error("Error:", error);
       alert("Something went wrong.");
     } finally {
-      setLoading(false);  
+      setLoading(false);
     }
   };
 
   return (
     <div className={styles.container}>
-  <form onSubmit={handleSubmit} className={styles.contactForm}>
-    <h2 className={styles.heading}>Get in Touch</h2>
-    <p className={styles.subheading}>
-      Have a question or want to work together? Fill out the form below!
-    </p>
+      <form onSubmit={handleSubmit} className={styles.contactForm}>
+        <h2 className={styles.heading}>Get in Touch</h2>
+        <p className={styles.subheading}>
+          Have a question or want to work together? Fill out the form below!
+        </p>
 
-    <div className={styles.inputGroup}>
-      <span className={styles.icon}>👤</span>
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        onChange={handleChange}
-        required
-      />
+        <div className={styles.inputGroup}>
+          <span className={styles.icon}>👤</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className={styles.inputGroup}>
+          <span className={styles.icon}>📧</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className={styles.inputGroup}>
+          <span className={styles.icon}>💬</span>
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <button type="submit" disabled={loading}>
+          {loading ? <span className={styles.spinner}></span> : null}
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+
+        {toast && <div className={styles.toast}>✅ Message Sent!</div>}
+      </form>
     </div>
-
-    <div className={styles.inputGroup}>
-      <span className={styles.icon}>📧</span>
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email"
-        onChange={handleChange}
-        required
-      />
-    </div>
-
-    <div className={styles.inputGroup}>
-      <span className={styles.icon}>💬</span>
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        onChange={handleChange}
-        required
-      />
-    </div>
-
-    <button type="submit" disabled={loading}>
-      {loading ? <span className={styles.spinner}></span> : null}
-      {loading ? "Sending..." : "Send Message"}
-    </button>
-
-    {toast && <div className={styles.toast}>✅ Message Sent!</div>}
-  </form>
-</div>
   );
 }

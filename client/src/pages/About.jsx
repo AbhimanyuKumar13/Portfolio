@@ -19,10 +19,7 @@ const About = () => {
             </li>
             <li>
               <strong>Email:</strong> ak6547765@gmail.com
-            </li>
-            <li>
-              <strong>Mobile:</strong> 7004838504
-            </li>
+            </li> 
           </ul>
         </div>
 
@@ -69,9 +66,7 @@ const About = () => {
         {/* Personal Details Card */}
         <div className={styles.card}>
           <h2>Personal Details</h2>
-          <ul>
-            <li><strong>Father’s Name:</strong> Ashok Pandit</li>
-            <li><strong>Mother’s Name:</strong> Nirmala Devi</li>
+          <ul> 
             <li><strong>Date of Birth:</strong> 5 May 2005</li>
             <li><strong>Gender:</strong> Male</li>
             <li><strong>Nationality:</strong> Indian</li>

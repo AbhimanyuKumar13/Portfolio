@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header className={styles.header}> 
       <div className={styles.logo}>
-        <Link to='/about'><h1>Er. <span>A</span>bhi</h1></Link>
+        <Link to='/'><h1>Er. <span>A</span>bhi</h1></Link>
       </div>  
 
       <div className={styles.menuToggle} onClick={toggleMenu}>

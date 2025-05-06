@@ -30,7 +30,7 @@ export const Home = () => {
           I'm a{" "}
           <span className={styles.typewriter}>
             <Typewriter
-              words={["Developer", "MERN Stack Enthusiast", "Tech Explorer"]}
+              words={["CSE Student","Developer", "MERN Stack Enthusiast", "Tech Explorer"]}
               loop={true}
               cursor
               cursorStyle="_"
@@ -42,10 +42,10 @@ export const Home = () => {
         </h1>
 
         <p className={styles.subtitle}>
-          I am a software engineer (2022–26).
+          I am a Computer Science & Engineering Student (2022–26).
           A passionate developer who loves to build and design amazing website
           experiences.
-        </p>
+        </p> 
       </div>
 
       <div className={styles.rightHome}>
